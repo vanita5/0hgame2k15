@@ -6,7 +6,8 @@ var app = playground({
 
     game: {
         started: false,
-        score: 0
+        score: 0,
+        lastY: -1
     },
 
     poempel: {
@@ -45,13 +46,16 @@ var app = playground({
         var y = event.y - 75;
         this.poempel.y = y > 90 ? 90 : y;
 
-        if (y >= 90) {
+        if (y >= 90 && this.game.lastY < 90) {
             this.game.started = true;
             this.game.score++;
             this.water.visible = true;
+            this.text = "Score: " + this.game.score;
         } else {
             this.water.visible = false;
         }
+
+        this.game.lastY = y;
 
         console.log(event.x);
     }
