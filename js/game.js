@@ -24,7 +24,8 @@ var app = playground({
     },
 
     mousemove: function(event) {
-        this.poempel.y = event.y - 75;
+        var y = event.y - 75;
+        this.poempel.y = y > 90 ? 90 : y;
 
         console.log(event.x);
     }
