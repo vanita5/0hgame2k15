@@ -77,8 +77,6 @@ var app = playground({
         }
 
         this.game.lastY = y;
-
-        console.log(event.x);
     },
 
     preferedAudioFormat: "mp3"
