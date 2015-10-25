@@ -24,6 +24,10 @@ var app = playground({
         visible: false
     },
 
+    gotPoo: function() {
+        return Math.floor(Math.random() * 100) == 1;
+    },
+
     create: function() {
         this.loadImages("poempel", "toilet", "water", "poo");
         this.text = "Pömpel to Start! (but not too hard)"
@@ -52,6 +56,11 @@ var app = playground({
         this.poempel.y = y > 90 ? 90 : y;
 
         if (y >= 90 && this.game.lastY < 90) {
+
+            if (this.gotPoo()) { //game over - yes it's random
+                this.game.started = false;
+            }
+
             this.game.started = true;
             this.game.score++;
             this.water.visible = true;
