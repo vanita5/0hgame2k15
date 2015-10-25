@@ -21,6 +21,7 @@ var app = playground({
 
     create: function() {
         this.loadImages("poempel", "toilet", "water");
+        this.text = "Pömpel to Start! (but not too hard)"
     },
 
     ready: function() {
@@ -32,7 +33,7 @@ var app = playground({
             .clear("#000")
             .font("24px Arial")
             .fillStyle("#FFF")
-            .fillText("Hello World", 20, 40);
+            .fillText(this.text, 20, 40);
 
         if (this.poempel.visible) this.layer.drawImage(this.images.poempel, this.poempel.x, this.poempel.y);
         if (this.water.visible) this.layer.drawImage(this.images.water, 285, 50);
