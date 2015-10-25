@@ -25,7 +25,7 @@ var app = playground({
     },
 
     gotPoo: function() {
-        return Math.floor(Math.random() * 100) == 1;
+        return Math.floor(Math.random() * 60) <3; //aww
     },
 
     create: function() {
