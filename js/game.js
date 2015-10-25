@@ -4,6 +4,10 @@ var app = playground({
     height: 250,
     scale: 2,
 
+    game: {
+        score: 0
+    },
+
     poempel: {
         x: 285,
         y: 10
@@ -34,7 +38,12 @@ var app = playground({
         var y = event.y - 75;
         this.poempel.y = y > 90 ? 90 : y;
 
-        this.water.visible = y >= 90;
+        if (y >= 90) {
+            this.game.score++;
+            this.water.visible = true;
+        } else {
+            this.water.visible = false;
+        }
 
         console.log(event.x);
     }
