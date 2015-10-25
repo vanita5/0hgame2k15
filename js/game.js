@@ -56,15 +56,18 @@ var app = playground({
         this.poempel.y = y > 90 ? 90 : y;
 
         if (y >= 90 && this.game.lastY < 90) {
-
             if (this.gotPoo()) { //game over - yes it's random
                 this.game.started = false;
+                this.score = 0;
+                this.poo.visible = true;
+                this.water.visible = false;
+                this.text = "Eww, you pömpled too hard :/";
+            } else {
+                this.game.started = true;
+                this.game.score++;
+                this.water.visible = true;
+                this.text = "Score: " + this.game.score;
             }
-
-            this.game.started = true;
-            this.game.score++;
-            this.water.visible = true;
-            this.text = "Score: " + this.game.score;
         } else {
             this.water.visible = false;
         }
