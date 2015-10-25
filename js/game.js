@@ -21,7 +21,7 @@ var app = playground({
     },
 
     create: function() {
-        this.loadImages("poempel", "toilet", "water");
+        this.loadImages("poempel", "toilet", "water", "poo");
         this.text = "Pömpel to Start! (but not too hard)"
     },
 
