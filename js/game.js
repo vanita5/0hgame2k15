@@ -30,6 +30,7 @@ var app = playground({
 
     create: function() {
         this.loadImages("poempel", "toilet", "water", "poo");
+        this.loadSounds("splash");
         this.text = "Pömpel to Start! (but not too hard)"
     },
 
@@ -70,12 +71,15 @@ var app = playground({
                 this.poo.visible = false;
                 this.water.visible = true;
                 this.text = "Score: " + this.game.score;
+                app.sound.play("splash");
             }
         }
 
         this.game.lastY = y;
 
         console.log(event.x);
-    }
+    },
+
+    preferedAudioFormat: "mp3"
 
 });
