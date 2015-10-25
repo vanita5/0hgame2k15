@@ -30,7 +30,7 @@ var app = playground({
 
     create: function() {
         this.loadImages("poempel", "toilet", "water", "poo");
-        this.loadSounds("splash");
+        this.loadSounds("splash", "toilet");
         this.text = "Pömpel to Start! (but not too hard)"
     },
 
@@ -65,6 +65,7 @@ var app = playground({
                 this.poo.visible = true;
                 this.water.visible = false;
                 this.text = "Eww, you pömpled too hard :/";
+                app.sound.play("toilet");
             } else {
                 this.game.started = true;
                 this.game.score++;
