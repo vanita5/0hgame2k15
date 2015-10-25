@@ -7,7 +7,8 @@ var app = playground({
     game: {
         started: false,
         score: 0,
-        lastY: -1
+        lastY: -1,
+        fin: false
     },
 
     poempel: {
@@ -41,7 +42,7 @@ var app = playground({
     render: function() {
         this.layer
             .clear("#000")
-            .font("24px Arial")
+            .font("18px Arial")
             .fillStyle("#FFF")
             .fillText(this.text, 20, 40);
 
@@ -53,6 +54,7 @@ var app = playground({
     },
 
     mousemove: function(event) {
+        if (this.game.fin) return;
         var y = event.y - 75;
         this.poempel.y = y > 90 ? 90 : y;
 
@@ -64,8 +66,9 @@ var app = playground({
                 this.game.score = 0;
                 this.poo.visible = true;
                 this.water.visible = false;
-                this.text = "Eww, you pömpled too hard :/";
+                this.text = "Eww, you pömpled too hard :/\nPress Space";
                 app.sound.play("toilet");
+                this.game.fin = true;
             } else {
                 this.game.started = true;
                 this.game.score++;
@@ -77,6 +80,16 @@ var app = playground({
         }
 
         this.game.lastY = y;
+    },
+
+    keydown: function(event) {
+
+        if (event.key == "space") {
+            this.game.fin = false;
+            this.poo.visible = false;
+            this.text = "Pömpel to Start! (but not too hard)"
+        }
+
     },
 
     preferedAudioFormat: "mp3"
