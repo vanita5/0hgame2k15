@@ -30,6 +30,7 @@ var app = playground({
     render: function() {
         this.layer
             .clear("#000")
+            .font("24px Arial")
             .fillStyle("#FFF")
             .fillText("Hello World", 20, 40);
 
