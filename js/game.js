@@ -65,6 +65,7 @@ var app = playground({
             } else {
                 this.game.started = true;
                 this.game.score++;
+                this.poo.visible = false;
                 this.water.visible = true;
                 this.text = "Score: " + this.game.score;
             }
