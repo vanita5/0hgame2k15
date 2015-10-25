@@ -20,6 +20,10 @@ var app = playground({
         visible: false
     },
 
+    poo: {
+        visible: false
+    },
+
     create: function() {
         this.loadImages("poempel", "toilet", "water", "poo");
         this.text = "Pömpel to Start! (but not too hard)"
@@ -38,6 +42,7 @@ var app = playground({
 
         if (this.poempel.visible) this.layer.drawImage(this.images.poempel, this.poempel.x, this.poempel.y);
         if (this.water.visible) this.layer.drawImage(this.images.water, 285, 50);
+        if (this.poo.visible) this.layer.drawImage(this.images.poo, 285, 50);
 
         this.layer.drawImage(this.images.toilet, 250, 50);
     },
