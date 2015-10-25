@@ -4,6 +4,11 @@ var app = playground({
     height: 250,
     scale: 2,
 
+    poempel: {
+        x: 285,
+        y: 10
+    },
+
     create: function() {
         this.loadImages("poempel", "toilet");
     },
@@ -14,8 +19,14 @@ var app = playground({
 
     render: function() {
         this.layer.clear("#000");
-        this.layer.drawImage(this.images.poempel, 285, 10);
+        this.layer.drawImage(this.images.poempel, this.poempel.x, this.poempel.y);
         this.layer.drawImage(this.images.toilet, 250, 50);
+    },
+
+    mousemove: function(event) {
+        this.poempel.y = event.y - 75;
+
+        console.log(event.x);
     }
 
 });
